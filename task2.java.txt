@@ -1,0 +1,51 @@
+
+import java.util.Scanner;
+
+public class Task02 {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] arr = new int[10];
+
+        System.out.println("Enter 10 integers:");
+        for (int i = 0; i < 10; i++) {
+            arr[i] = input.nextInt();
+        }
+
+        int max = arr[0];
+        int min = arr[0];
+        int secondMin = Integer.MAX_VALUE;
+
+        for (int i = 1; i < 10; i++) {
+            if (arr[i] > max) {
+                max = arr[i];
+            }
+
+            if (arr[i] < min) {
+                min = arr[i];
+            }
+        }
+
+        for (int i = 0; i < 10; i++) {
+            if (arr[i] > min && arr[i] < secondMin) {
+                secondMin = arr[i];
+            }
+        }
+
+        System.out.println("Largest: " + max);
+        System.out.println("Smallest: " + min);
+
+        if (secondMin == Integer.MAX_VALUE) {
+            System.out.println("Second minimum does not exist.");
+        } else {
+            System.out.println("Second minimum: " + secondMin);
+        }
+
+        for (int i = 0; i < 10; i++) {
+            if (arr[i] == min || arr[i] == secondMin) {
+                System.out.println(arr[i] + " at index " + i);
+            }
+        }
+
+        input.close();
+    }
+}
